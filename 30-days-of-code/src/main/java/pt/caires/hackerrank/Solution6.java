@@ -38,18 +38,4 @@ public class Solution6
             });
         }
     }
-
-  /*  private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        int n = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-        IntStream.rangeClosed(1,10).forEach(i -> {
-            int result = n * i;
-            System.out.println(n + " x " + i + " = " + result);
-        });
-
-        scanner.close();
-    }*/
 }

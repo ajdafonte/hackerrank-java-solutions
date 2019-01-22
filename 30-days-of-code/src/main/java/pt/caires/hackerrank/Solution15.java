@@ -17,8 +17,7 @@ class Node
 
 class Solution15
 {
-
-    public static Node insert(Node head, final int data)
+    private static Node insert(Node head, final int data)
     {
         if (head == null)
         {
@@ -37,7 +36,7 @@ class Solution15
         return head;
     }
 
-    public static void display(final Node head)
+    private static void display(final Node head)
     {
         Node start = head;
         while (start != null)

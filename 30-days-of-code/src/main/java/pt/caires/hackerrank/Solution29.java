@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Solution29
 {
-
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(final String[] args)
@@ -27,21 +26,15 @@ public class Solution29
             {
                 for (int j = i + 1; j <= n; j++)
                 {
-//                    System.out.println("a= " + i + " and b= " + j);
                     final int currBitwise = i & j;
-//                    System.out.println("bitwise " + currBitwise);
                     if (maxBitwiseVal < currBitwise && currBitwise < k)
                     {
                         maxBitwiseVal = currBitwise;
                     }
                 }
-
             }
-
             System.out.println(maxBitwiseVal);
-
         }
-
         scanner.close();
     }
 }

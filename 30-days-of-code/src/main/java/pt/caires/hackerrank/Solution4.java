@@ -1,47 +1,64 @@
 package pt.caires.hackerrank;
 
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
-// Day 4: Class vs. Instance
-public class Person {
+
+class Person
+{
     private int age;
 
-    public Person(int initialAge) {
+    Person(final int initialAge)
+    {
         // Add some more code to run some checks on initialAge
-        if(initialAge > 0) {
+        if (initialAge > 0)
+        {
             this.age = initialAge;
-        } else {
+        }
+        else
+        {
             System.out.println("Age is not valid, setting age to 0.");
             this.age = 0;
         }
     }
 
-    public void amIOld() {
+    void amIOld()
+    {
         // Write code determining if this person's age is old and print the correct statement:
         String textResult = "You are old.";
-        if (age < 13) {
+        if (age < 13)
+        {
             textResult = "You are young.";
         }
-        else if (age >= 13 && age < 18){
+        else if (age < 18)
+        {
             textResult = "You are a teenager.";
         }
         System.out.println(textResult);
     }
 
-    public void yearPasses() {
+    void yearPasses()
+    {
         // Increment this person's age.
         age++;
     }
+}
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        for (int i = 0; i < T; i++) {
-            int age = sc.nextInt();
-            Person p = new Person(age);
+/**
+ * Created by aleja on 23/01/2019.
+ */
+public class Solution4
+{
+    public static void main(final String[] args)
+    {
+        final Scanner sc = new Scanner(System.in);
+        final int T = sc.nextInt();
+        for (int i = 0; i < T; i++)
+        {
+            final int age = sc.nextInt();
+            final Person p = new Person(age);
             p.amIOld();
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 3; j++)
+            {
                 p.yearPasses();
             }
             p.amIOld();

@@ -18,12 +18,6 @@ public class Solution10
         final String binaryNum = Integer.toBinaryString(n);
         int cnt = 0;
 
-////        System.out.println(binaryNum);
-//        System.out.println(binaryNum.chars()
-//            .mapToObj(ch -> Character.getNumericValue(ch))
-//            .filter(i -> i == 1)
-//            .count());
-
         for (int i = 0; i < binaryNum.length(); i++)
         {
             int auxCnt = 0;
