@@ -3,6 +3,9 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
+/**
+ *
+ */
 public class Solution11
 {
 
@@ -35,7 +38,7 @@ public class Solution11
 
         for (int i = 0; i < 4; i++)
         {
-            int currSum = 0;
+            int currSum;
             for (int j = 0; j < 4; j++)
             {
                 currSum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]

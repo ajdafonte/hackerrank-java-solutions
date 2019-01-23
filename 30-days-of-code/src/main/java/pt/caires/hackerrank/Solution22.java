@@ -3,20 +3,8 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-class Node2
-{
-    Node2 left, right;
-    int data;
-
-    Node2(final int data)
-    {
-        this.data = data;
-        left = right = null;
-    }
-}
-
 /**
- * Created by aleja on 23/01/2019.
+ *
  */
 public class Solution22
 {

@@ -5,26 +5,14 @@ import java.util.Queue;
 import java.util.Scanner;
 
 
-class Node3
-{
-    Node3 left, right;
-    int data;
-
-    Node3(final int data)
-    {
-        this.data = data;
-        left = right = null;
-    }
-}
-
 /**
- * Created by aleja on 23/01/2019.
+ *
  */
 public class Solution23
 {
-    private static void levelOrder(final Node3 root)
+    private static void levelOrder(final Node2 root)
     {
-        final Queue<Node3> queue = new LinkedList<>();
+        final Queue<Node2> queue = new LinkedList<>();
 
         //Write your code here
         if (root != null)
@@ -36,7 +24,7 @@ public class Solution23
             while (!queue.isEmpty())
             {
                 // dequeue next node
-                final Node3 n = queue.remove();
+                final Node2 n = queue.remove();
 
                 System.out.print(n.data + " ");
 
@@ -53,15 +41,15 @@ public class Solution23
         }
     }
 
-    private static Node3 insert(final Node3 root, final int data)
+    private static Node2 insert(final Node2 root, final int data)
     {
         if (root == null)
         {
-            return new Node3(data);
+            return new Node2(data);
         }
         else
         {
-            final Node3 cur;
+            final Node2 cur;
             if (data <= root.data)
             {
                 cur = insert(root.left, data);
@@ -80,7 +68,7 @@ public class Solution23
     {
         final Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
-        Node3 root = null;
+        Node2 root = null;
         while (T-- > 0)
         {
             final int data = sc.nextInt();

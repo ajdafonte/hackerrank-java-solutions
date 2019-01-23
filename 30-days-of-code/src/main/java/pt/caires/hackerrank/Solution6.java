@@ -4,6 +4,9 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 
+/**
+ *
+ */
 public class Solution6
 {
     private static boolean isEvenNumber(final int num)

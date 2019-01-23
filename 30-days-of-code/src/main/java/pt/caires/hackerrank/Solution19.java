@@ -18,6 +18,9 @@ class Calculator implements AdvancedArithmetic
     }
 }
 
+/**
+ *
+ */
 class Solution19
 {
     public static void main(final String[] args)

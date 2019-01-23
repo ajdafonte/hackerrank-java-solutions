@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 23/01/2019.
+ *
  */
 public class Solution8
 {
-    public static void main(final String[] argh)
+    public static void main(final String[] args)
     {
         final Scanner in = new Scanner(System.in);
         final int n = in.nextInt();

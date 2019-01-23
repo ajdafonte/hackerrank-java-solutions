@@ -3,18 +3,9 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-class Node
-{
-    int data;
-    Node next;
-
-    Node(final int d)
-    {
-        data = d;
-        next = null;
-    }
-}
-
+/**
+ *
+ */
 class Solution15
 {
     private static Node insert(Node head, final int data)

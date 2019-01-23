@@ -3,6 +3,9 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
+/**
+ *
+ */
 public class Solution29
 {
     private static final Scanner scanner = new Scanner(System.in);

@@ -22,7 +22,7 @@ class Printer<T>
 }
 
 /**
- * Created by aleja on 23/01/2019.
+ *
  */
 public class Solution21
 {

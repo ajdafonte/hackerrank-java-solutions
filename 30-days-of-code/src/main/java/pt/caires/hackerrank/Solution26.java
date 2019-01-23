@@ -7,12 +7,15 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 
+/**
+ *
+ */
 public class Solution26
 {
 
 //    private static int calculateFine(final LocalDate returnDate, final LocalDate expectedDate)
 //    {
-//        // this is OK, but exercice is not fit for this
+//        // this is OK, but exercise is not fit for this
 //        int fine = 0;
 //
 //        if (returnDate.isAfter(expectedDate))

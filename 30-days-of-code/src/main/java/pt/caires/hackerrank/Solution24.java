@@ -3,30 +3,18 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-class Node4
-{
-    int data;
-    Node4 next;
-
-    Node4(final int d)
-    {
-        data = d;
-        next = null;
-    }
-}
-
 /**
- * Created by aleja on 23/01/2019.
+ *
  */
 public class Solution24
 {
-    private static Node4 removeDuplicates(final Node4 head)
+    private static Node removeDuplicates(final Node head)
     {
         // validates if list is empty
         if (head != null)
         {
 
-            Node4 currNode = head;
+            Node currNode = head;
 
             // iterates through list
             while (currNode.next != null)
@@ -48,9 +36,9 @@ public class Solution24
         return head;
     }
 
-    private static Node4 insert(Node4 head, final int data)
+    private static Node insert(Node head, final int data)
     {
-        final Node4 p = new Node4(data);
+        final Node p = new Node(data);
         if (head == null)
         {
             head = p;
@@ -61,7 +49,7 @@ public class Solution24
         }
         else
         {
-            Node4 start = head;
+            Node start = head;
             while (start.next != null)
             {
                 start = start.next;
@@ -72,9 +60,9 @@ public class Solution24
         return head;
     }
 
-    private static void display(final Node4 head)
+    private static void display(final Node head)
     {
-        Node4 start = head;
+        Node start = head;
         while (start != null)
         {
             System.out.print(start.data + " ");
@@ -85,7 +73,7 @@ public class Solution24
     public static void main(final String[] args)
     {
         final Scanner sc = new Scanner(System.in);
-        Node4 head = null;
+        Node head = null;
         int T = sc.nextInt();
         while (T-- > 0)
         {
