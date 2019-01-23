@@ -1,4 +1,4 @@
-package pt.caires.hackerrank.oo_concepts;
+package pt.caires.hackerrank.oo_programming;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,11 +17,11 @@ class Hacker
 }
 
 /**
- * Created by aleja on 18/01/2019.
+ *
  */
 public class InstanceofKeyword
 {
-    static String count(final ArrayList mylist)
+    private static String count(final ArrayList mylist)
     {
         int a = 0, b = 0, c = 0;
         for (int i = 0; i < mylist.size(); i++)
@@ -40,8 +40,7 @@ public class InstanceofKeyword
                 c++;
             }
         }
-        final String ret = Integer.toString(a) + " " + Integer.toString(b) + " " + Integer.toString(c);
-        return ret;
+        return a + " " + b + " " + c;
     }
 
     public static void main(final String[] args)

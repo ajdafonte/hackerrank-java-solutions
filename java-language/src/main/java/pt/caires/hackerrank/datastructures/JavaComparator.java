@@ -49,6 +49,9 @@ class Checker implements Comparator<Player>
     }
 }
 
+/**
+ *
+ */
 public class JavaComparator
 {
     private static boolean checkScore(final int score)
@@ -78,6 +81,7 @@ public class JavaComparator
                 }
             }
 
+            // Other option
 //            // execute sort
 //            Arrays.sort(players, new Checker());
 //

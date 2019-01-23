@@ -9,7 +9,7 @@ import java.util.Locale;
 
 
 /**
- * Created by aleja on 28/12/2018.
+ *
  */
 class Result
 {
@@ -21,7 +21,7 @@ class Result
      * parameters: 1. INTEGER month 2. INTEGER day 3. INTEGER year
      */
 
-    public static String findDay(final int month, final int day, final int year)
+    static String findDay(final int month, final int day, final int year)
     {
         System.out.println("pum");
         final GregorianCalendar gc = new GregorianCalendar(year, month - 1, day);
@@ -34,12 +34,11 @@ class Result
 
 }
 
-public class JavaDateTime
+public class DateAndTime
 {
     public static void main(final String[] args) throws IOException
     {
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//        final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
@@ -52,10 +51,6 @@ public class JavaDateTime
         final String res = Result.findDay(month, day, year);
         System.out.println(res);
 
-//        bufferedWriter.write(res);
-//        bufferedWriter.newLine();
-
         bufferedReader.close();
-//        bufferedWriter.close();
     }
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 07/01/2019.
+ *
  */
 public class JavaList
 {
@@ -17,9 +17,7 @@ public class JavaList
         {
             populateList(sc);
             performQueries(sc);
-            list.forEach(elem -> {
-                System.out.print(elem + " ");
-            });
+            list.forEach(elem -> System.out.print(elem + " "));
         }
     }
 

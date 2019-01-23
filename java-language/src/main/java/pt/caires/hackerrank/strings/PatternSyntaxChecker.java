@@ -6,9 +6,9 @@ import java.util.regex.PatternSyntaxException;
 
 
 /**
- * Created by aleja on 29/12/2018.
+ *
  */
-public class PatternChecker
+public class PatternSyntaxChecker
 {
     private static String checkPattern(final String pattern)
     {

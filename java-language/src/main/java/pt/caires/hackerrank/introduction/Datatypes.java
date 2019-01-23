@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 27/12/2018.
+ *
  */
 public class Datatypes
 {
-
     private static boolean checkNumberType(final Number num, final String intType, final Number minValue, final Number maxValue)
     {
         if (checkRangeInclusive(num.longValue(), minValue.longValue(), maxValue.longValue()))

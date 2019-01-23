@@ -1,4 +1,4 @@
-package pt.caires.hackerrank.oo_concepts;
+package pt.caires.hackerrank.oo_programming;
 
 class Sports
 {
@@ -29,7 +29,7 @@ class Soccer extends Sports
 }
 
 /**
- * Created by aleja on 18/01/2019.
+ *
  */
 public class MethodOverriding1
 {

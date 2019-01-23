@@ -15,7 +15,10 @@ class Printer
 
 }
 
-public class JavaGenerics
+/**
+ *
+ */
+public class Generics
 {
 
     public static void main(final String[] args)

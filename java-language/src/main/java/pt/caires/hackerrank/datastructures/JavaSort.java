@@ -1,7 +1,6 @@
 package pt.caires.hackerrank.datastructures;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +17,7 @@ class Student
     private final String fname;
     private final double cgpa;
 
-    public Student(final int id, final String fname, final double cgpa)
+    Student(final int id, final String fname, final double cgpa)
     {
         super();
         this.id = id;
@@ -26,26 +25,28 @@ class Student
         this.cgpa = cgpa;
     }
 
-    public int getId()
+    int getId()
     {
         return id;
     }
 
-    public String getFname()
+    String getFname()
     {
         return fname;
     }
 
-    public double getCgpa()
+    double getCgpa()
     {
         return cgpa;
     }
 }
 
-//Complete the code
+/**
+ *
+ */
 public class JavaSort
 {
-    static final Comparator<Student> MY_COMPARATOR = (o1, o2) -> {
+    private static final Comparator<Student> MY_COMPARATOR = (o1, o2) -> {
         final int defaultComparison = Double.compare(o2.getCgpa(), o1.getCgpa());
         if (defaultComparison == 0)
         {
@@ -80,7 +81,7 @@ public class JavaSort
             testCases--;
         }
 
-        Collections.sort(studentList, MY_COMPARATOR);
+        studentList.sort(MY_COMPARATOR);
 
         for (final Student st : studentList)
         {

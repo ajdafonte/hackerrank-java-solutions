@@ -1,4 +1,4 @@
-package pt.caires.hackerrank.oo_concepts;
+package pt.caires.hackerrank.oo_programming;
 
 class BiCycle
 {
@@ -28,7 +28,7 @@ class MotorCycle extends BiCycle
 }
 
 /**
- * Created by aleja on 18/01/2019.
+ *
  */
 public class MethodOverriding2
 {

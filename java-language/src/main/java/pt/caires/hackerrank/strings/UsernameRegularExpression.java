@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 29/12/2018.
+ *
  */
 class Validator
 {
@@ -14,7 +14,7 @@ class Validator
     public static final String regularExpression = "[a-zA-Z]\\w{7,29}";
 }
 
-public class UsernameValidator
+public class UsernameRegularExpression
 {
     private static final Scanner scan = new Scanner(System.in);
 

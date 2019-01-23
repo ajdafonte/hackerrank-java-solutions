@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 
 /**
- * Created by aleja on 10/01/2019.
+ *
  */
 public class LambdaExpressions2
 {

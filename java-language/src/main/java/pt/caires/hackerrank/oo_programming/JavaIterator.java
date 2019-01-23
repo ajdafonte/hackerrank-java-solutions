@@ -1,4 +1,4 @@
-package pt.caires.hackerrank.oo_concepts;
+package pt.caires.hackerrank.oo_programming;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 18/01/2019.
+ * TODO - Not complete
  */
 public class JavaIterator
 {
@@ -18,7 +18,7 @@ public class JavaIterator
             final Object element = it.next();
             if (element instanceof String) //Hints: use instanceof operator
             {
-//                it.f
+                // TODO
                 break;
             }
         }

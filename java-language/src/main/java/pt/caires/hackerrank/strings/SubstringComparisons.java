@@ -6,9 +6,9 @@ import java.util.stream.IntStream;
 
 
 /**
- * Created by aleja on 28/12/2018.
+ *
  */
-public class SubstringComparison
+public class SubstringComparisons
 {
     private static int getEndIdx(final String s, final int k, final int idx)
     {
@@ -21,7 +21,7 @@ public class SubstringComparison
         return s.length() >= k && k > 0;
     }
 
-    public static String getSmallestAndLargest(final String s, final int k)
+    private static String getSmallestAndLargest(final String s, final int k)
     {
         String smallest = "";
         String largest = "";
@@ -36,15 +36,11 @@ public class SubstringComparison
             // sort the array of possible substrings (lexicographically) -- treeset sort the elements automatically
             final TreeSet<String> substrings = new TreeSet<>();
             IntStream.range(0, k).forEach(num -> {
-//                System.out.println("Iter " + num);
                 for (int i = num; i <= s.length() - k; i = i + k)
                 {
                     final String s1 = s.substring(i, getEndIdx(s, k, i));
-//                    System.out.println("String " + s1);
-                    substrings.add(s1);
                 }
             });
-//            System.out.println(substrings);
             // get first and last of sorted array
             smallest = substrings.first();
             largest = substrings.last();

@@ -2,24 +2,23 @@ package pt.caires.hackerrank.strings;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 
 /**
- * Created by aleja on 28/12/2018.
+ *
  */
 public class Anagrams
 {
     private static HashMap<Character, Long> createAnagramTable(final String str)
     {
-        final java.util.HashMap<Character, Long> table = new java.util.HashMap<>();
-        final java.util.stream.IntStream uniqueChars = str.toLowerCase().chars().distinct();
-        uniqueChars.forEach(x -> {
-            table.put((char) x, str.toLowerCase().chars().filter(i -> i == x).count());
-        });
+        final HashMap<Character, Long> table = new HashMap<>();
+        final IntStream uniqueChars = str.toLowerCase().chars().distinct();
+        uniqueChars.forEach(x -> table.put((char) x, str.toLowerCase().chars().filter(i -> i == x).count()));
         return table;
     }
 
-    static boolean isAnagram(final String a, final String b)
+    private static boolean isAnagram(final String a, final String b)
     {
         return createAnagramTable(a).equals(createAnagramTable(b));
     }

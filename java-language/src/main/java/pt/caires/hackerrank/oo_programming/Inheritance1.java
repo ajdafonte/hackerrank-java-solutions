@@ -1,4 +1,4 @@
-package pt.caires.hackerrank.oo_concepts;
+package pt.caires.hackerrank.oo_programming;
 
 class Animal
 {
@@ -22,7 +22,7 @@ class Bird extends Animal
 }
 
 /**
- * Created by aleja on 18/01/2019.
+ *
  */
 public class Inheritance1
 {

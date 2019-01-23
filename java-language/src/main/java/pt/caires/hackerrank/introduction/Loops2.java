@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 28/12/2018.
+ *
  */
 public class Loops2
 {

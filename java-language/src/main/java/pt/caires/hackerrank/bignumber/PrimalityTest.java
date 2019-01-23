@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 31/12/2018.
+ *
  */
 public class PrimalityTest
 {
 
-//    Given a large integer, n, use the Java BigInteger class' isProbablePrime method to determine and print whether it's prime or not prime.
+//    Given a large integer, n, use the Java BigInteger class
+//    ' isProbablePrime method to determine and print whether
+//    it's prime or not prime.
 
     private static String isPrimeNumber(final BigInteger n)
     {

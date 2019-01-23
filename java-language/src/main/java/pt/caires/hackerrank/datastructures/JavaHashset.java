@@ -8,7 +8,7 @@ import javafx.util.Pair;
 
 
 /**
- * Created by aleja on 08/01/2019.
+ *
  */
 public class JavaHashset
 {
@@ -24,8 +24,7 @@ public class JavaHashset
             pair_left[i] = s.next();
             pair_right[i] = s.next();
         }
-
-        //Write your code here
+        
         final Set<Pair<String, String>> pairSet = new HashSet<>();
         for (int i = 0; i < t; i++)
         {

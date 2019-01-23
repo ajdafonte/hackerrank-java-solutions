@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 
 
 /**
- * Created by aleja on 29/12/2018.
+ *
  */
-public class Tokens
+public class StringTokens
 {
     private static final String STR_REGEX = "[A-Za-z !,?._'@]+";
     private static final String TOKEN_REGEX = "[^A-Za-z]+";

@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 
 /**
- * Created by aleja on 28/12/2018.
+ *
  */
-public class StaticInitializer
+public class StaticInitializerBlock
 {
     private static short B = 0;
     private static short H = 0;

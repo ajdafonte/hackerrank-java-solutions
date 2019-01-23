@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 
 /**
- * Created by aleja on 09/01/2019.
+ *
  */
 public class LambdaExpressions
 {
