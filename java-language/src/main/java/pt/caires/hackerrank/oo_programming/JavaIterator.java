@@ -5,12 +5,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 
-/**
- * TODO - Not complete
- */
 public class JavaIterator
 {
-    static Iterator func(final ArrayList mylist)
+    private static Iterator func(final ArrayList mylist)
     {
         final Iterator it = mylist.iterator();
         while (it.hasNext())
@@ -18,7 +15,6 @@ public class JavaIterator
             final Object element = it.next();
             if (element instanceof String) //Hints: use instanceof operator
             {
-                // TODO
                 break;
             }
         }
