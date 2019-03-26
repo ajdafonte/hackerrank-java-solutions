@@ -5,11 +5,11 @@ import java.util.function.Function;
 
 
 /**
- *
+ * Remark: Another approach not submitted in HackerRank
  */
 public class LambdaExpressions
 {
-    public static Function<Integer, Boolean> isOdd()
+    private static Function<Integer, Boolean> isOdd()
     {
         return num -> num % 2 != 0;
     }
@@ -28,12 +28,12 @@ public class LambdaExpressions
         return result;
     }
 
-    public static Function<Integer, Boolean> isPrime()
+    private static Function<Integer, Boolean> isPrime()
     {
         return num -> num <= 3 || checkPrime(num);
     }
 
-    public static Function<Integer, Boolean> isPalindrome()
+    private static Function<Integer, Boolean> isPalindrome()
     {
         return num -> {
             final String numStr = Integer.toString(num);

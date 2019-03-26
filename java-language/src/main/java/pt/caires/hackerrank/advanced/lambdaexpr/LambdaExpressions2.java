@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 
 /**
- *
+ * Remark: Approach submitted in HackerRank
  */
 public class LambdaExpressions2
 {
@@ -17,7 +17,7 @@ public class LambdaExpressions2
         final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
         PerformOperation op;
-        boolean ret = false;
+        boolean ret;
         String ans = null;
         while (T-- > 0)
         {

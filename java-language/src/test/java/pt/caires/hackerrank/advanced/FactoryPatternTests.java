@@ -28,7 +28,7 @@ public class FactoryPatternTests
 
         if (failures > 0)
         {
-            throw new RuntimeException("Incurred " + failures + " failures while testing precision");
+            throw new RuntimeException("Incurred " + failures + " failures while testing " + FactoryPattern.class.getSimpleName());
         }
         else
         {
