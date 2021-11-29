@@ -1,58 +1,29 @@
 package pt.caires.hackerrank.warmup;
 
-import java.util.Arrays;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import javafx.util.Pair;
+import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- *
- */
-public class JumpingCloudsTest
-{
-    public static void main(final String[] args)
-    {
-        int failures = 0;
+class JumpingCloudsTest {
 
-        final Pair<int[], Integer>[] testCases = new Pair[] {
-            new Pair(new int[] {0, 1, 0, 0, 0, 1, 0}, 3),
-            new Pair(new int[] {0, 0, 0, 0, 1, 0}, 3),
-            new Pair(new int[] {0, 0, 1, 0, 0, 1, 0}, 4),
-            new Pair(new int[] {0, 0, 0, 0}, 2),
-            new Pair(new int[] {0, 1, 0, 1, 0, 1, 0, 0, 1, 0}, 5)
-        };
-
-        for (final Pair<int[], Integer> testCase : testCases)
-        {
-            final int[] input = testCase.getKey();
-            final Integer expectedResult = testCase.getValue();
-            failures += executeTest(input, expectedResult);
-
-        }
-
-        if (failures > 0)
-        {
-            throw new RuntimeException("Incurred " + failures + " failures while testing " + JumpingClouds.class.getSimpleName());
-        }
-        else
-        {
-            System.out.println("All tests are OK!!");
-        }
+    private static Stream<Arguments> clouds() {
+        return Stream.of(
+                Arguments.of(new int[]{0, 1, 0, 0, 0, 1, 0}, 3),
+                Arguments.of(new int[]{0, 0, 0, 0, 1, 0}, 3),
+                Arguments.of(new int[]{0, 0, 1, 0, 0, 1, 0}, 4),
+                Arguments.of(new int[]{0, 0, 0, 0}, 2),
+                Arguments.of(new int[]{0, 1, 0, 1, 0, 1, 0, 0, 1, 0}, 5));
     }
 
-    private static int executeTest(final int[] input, final Integer expectedResult)
-    {
-        final int result = JumpingClouds.jumpingOnClouds(input);
-
-        if (result != expectedResult)
-
-        {
-            System.err.println(
-                "For test case " + Arrays.toString(input) + " the expected number of pairs should be'" + expectedResult + "', but got '" + result
-                    + "' ");
-            return 1;
-        }
-        return 0;
+    @ParameterizedTest
+    @MethodSource("clouds")
+    void should_count_number_of_jump_in_clouds(int[] input, int expected) {
+        assertThat(JumpingClouds.jumpingOnClouds(input)).isEqualTo(expected);
     }
+
 }
 

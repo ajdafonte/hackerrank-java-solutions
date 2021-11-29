@@ -1,54 +1,27 @@
 package pt.caires.hackerrank.warmup;
 
-import javafx.util.Pair;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
-/**
- *
- */
-public class SockMerchantTest
-{
-    public static void main(final String[] args)
-    {
-        int failures = 0;
+class SockMerchantTest {
 
-        final Pair<int[], Integer>[] testCases = new Pair[] {
-            new Pair(new int[] {1, 2, 1, 2, 1, 3, 2}, 2),
-            new Pair(new int[] {1, 2, 1, 2, 1, 2, 1, 2}, 4),
-            new Pair(new int[] {1, 2, 3, 4, 5}, 0)
-        };
-
-        for (final Pair<int[], Integer> testCase : testCases)
-        {
-            final int[] input = testCase.getKey();
-            final Integer expectedResult = testCase.getValue();
-            failures += executeTest(input, expectedResult);
-
-        }
-
-        if (failures > 0)
-        {
-            throw new RuntimeException("Incurred " + failures + " failures while testing " + SockMerchant.class.getSimpleName());
-        }
-        else
-        {
-            System.out.println("All tests are OK!!");
-        }
+    private static Stream<Arguments> merchantSocks() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 1, 2, 1, 3, 2}, 2),
+                Arguments.of(new int[]{1, 2, 1, 2, 1, 2, 1, 2}, 4),
+                Arguments.of(new int[]{1, 2, 3, 4, 5}, 0));
     }
 
-    private static int executeTest(final int[] input, final Integer expectedResult)
-    {
-        return checkResult(SockMerchant.sockMerchant(input.length, input), expectedResult);
+    @ParameterizedTest
+    @MethodSource("merchantSocks")
+    void should_count_number_of_paired_socks(int[] socks, int expected) {
+        assertThat(SockMerchant.sockMerchant(socks.length, socks)).isEqualTo(expected);
     }
 
-    private static int checkResult(final int result, final int expectedResult)
-    {
-        if (result != expectedResult)
-        {
-            System.err.println("Expected number of pairs '" + expectedResult + "' , got '" + result + "' ");
-            return 1;
-        }
-
-        return 0;
-    }
 }

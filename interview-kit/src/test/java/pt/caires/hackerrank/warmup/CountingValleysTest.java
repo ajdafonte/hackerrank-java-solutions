@@ -1,53 +1,39 @@
 package pt.caires.hackerrank.warmup;
 
-import javafx.util.Pair;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
-/**
- *
- */
-public class CountingValleysTest
-{
-    public static void main(final String[] args)
-    {
-        int failures = 0;
+class CountingValleysTest {
 
-        final Pair<String, Integer>[] testCases = new Pair[] {
-            new Pair("UDDDUDUU", 1),
-            new Pair("DDUUUUDD", 1)
-        };
-
-        for (final Pair<String, Integer> testCase : testCases)
-        {
-            final String input = testCase.getKey();
-            final Integer expectedResult = testCase.getValue();
-            failures += executeTest(input, expectedResult);
-
-        }
-
-        if (failures > 0)
-        {
-            throw new RuntimeException("Incurred " + failures + " failures while testing " + CountingValleys.class.getSimpleName());
-        }
-        else
-        {
-            System.out.println("All tests are OK!!");
-        }
+    private static Stream<Arguments> withValleys() {
+        return Stream.of(
+                Arguments.of("UDDDUDUU", 8, 1),
+                Arguments.of("DDUUUUDD", 8, 1),
+                Arguments.of("DDUUUUDDDU", 10, 2));
     }
 
-    private static int executeTest(final String input, final Integer expectedResult)
-    {
-        return checkResult(CountingValleys.countingValleys(input.length(), input), expectedResult);
+    private static Stream<Arguments> withoutValleys() {
+        return Stream.of(
+                Arguments.of("UUUU", 4, 0),
+                Arguments.of("DDDDU", 5, 0));
     }
 
-    private static int checkResult(final int result, final int expectedResult)
-    {
-        if (result != expectedResult)
-        {
-            System.err.println("Expected number of pairs '" + expectedResult + "' , got '" + result + "' ");
-            return 1;
-        }
-
-        return 0;
+    @ParameterizedTest
+    @MethodSource("withValleys")
+    void should_count_some_existing_valleys(String input, int numSteps, int expected) {
+        assertThat(CountingValleys.countingValleys(numSteps, input)).isEqualTo(expected);
     }
+
+    @ParameterizedTest
+    @MethodSource("withoutValleys")
+    void should_count_zero_valleys(String input, int numSteps, int expected) {
+        assertThat(CountingValleys.countingValleys(numSteps, input)).isEqualTo(expected);
+    }
+
 }

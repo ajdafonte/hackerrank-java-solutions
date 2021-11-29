@@ -6,25 +6,18 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class JumpingClouds
-{
+public class JumpingClouds {
+
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Complete the jumpingOnClouds function below.
-    static int jumpingOnClouds(final int[] c)
-    {
+    static int jumpingOnClouds(final int[] c) {
         int numJumps = 0;
-        for (int i = 0; i < c.length - 1; )
-        {
+        for (int i = 0; i < c.length - 1; ) {
             final int bestJump = i + 2;
-            if (bestJump < c.length && c[bestJump] == 0)
-            {
+            if (bestJump < c.length && c[bestJump] == 0) {
                 i = i + 2;
-            }
-            else
-            {
+            } else {
                 i++;
             }
             numJumps++;
@@ -32,10 +25,7 @@ public class JumpingClouds
         return numJumps;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(final String[] args) throws IOException
-    {
+    public static void main(final String[] args) throws IOException {
         final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final int n = scanner.nextInt();
@@ -46,8 +36,7 @@ public class JumpingClouds
         final String[] cItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             final int cItem = Integer.parseInt(cItems[i]);
             c[i] = cItem;
         }
@@ -61,4 +50,5 @@ public class JumpingClouds
 
         scanner.close();
     }
+
 }

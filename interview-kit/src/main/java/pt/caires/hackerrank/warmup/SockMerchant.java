@@ -7,14 +7,12 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class SockMerchant
-{
+public class SockMerchant {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the sockMerchant function below.
-    static int sockMerchant(final int n, final int[] ar)
-    {
+    static int sockMerchant(final int n, final int[] ar) {
         // version 1
 //        final HashMap<Integer, Long> map = new HashMap();
 //        Arrays.stream(ar)
@@ -28,14 +26,10 @@ public class SockMerchant
         // version 2
         final HashSet<Integer> socks = new HashSet<>();
         int numPairs = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (!socks.contains(ar[i]))
-            {
+        for (int i = 0; i < n; i++) {
+            if (!socks.contains(ar[i])) {
                 socks.add(ar[i]);
-            }
-            else
-            {
+            } else {
                 socks.remove(ar[i]);
                 numPairs++;
             }
@@ -44,10 +38,7 @@ public class SockMerchant
         return numPairs;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(final String[] args) throws IOException
-    {
+    public static void main(final String[] args) throws IOException {
         final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final int n = scanner.nextInt();
@@ -55,12 +46,10 @@ public class SockMerchant
 
         final int[] ar = new int[n];
 
-        // scanner.next();
         final String[] arItems = scanner.nextLine().split(" ");
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             final int arItem = Integer.parseInt(arItems[i]);
             ar[i] = arItem;
         }
@@ -77,4 +66,5 @@ public class SockMerchant
 
         scanner.close();
     }
+
 }

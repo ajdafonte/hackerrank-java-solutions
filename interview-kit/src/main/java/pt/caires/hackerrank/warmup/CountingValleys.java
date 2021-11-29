@@ -6,30 +6,24 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class CountingValleys
-{
+public class CountingValleys {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the countingValleys function below.
-    static int countingValleys(final int n, final String s)
-    {
+    static int countingValleys(final int n, final String s) {
         int level = 0;
         int numValleys = 0;
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             final char mov = s.charAt(i);
-            if (mov == 'U')
-            {
+            if (mov == 'U') {
                 level++;
             }
-            if (mov == 'D')
-            {
+            if (mov == 'D') {
                 level--;
             }
 
-            if (level == 0 & mov == 'U')
-            {
+            if (level == 0 && mov == 'U') {
                 numValleys++;
             }
         }
@@ -37,10 +31,7 @@ public class CountingValleys
         return numValleys;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(final String[] args) throws IOException
-    {
+    public static void main(final String[] args) throws IOException {
         final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final int n = scanner.nextInt();
@@ -59,4 +50,5 @@ public class CountingValleys
 
         scanner.close();
     }
+
 }

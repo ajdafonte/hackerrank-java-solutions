@@ -1,57 +1,29 @@
 package pt.caires.hackerrank.warmup;
 
-import javafx.util.Pair;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
-/**
- *
- */
-public class RepeatedStringTest
-{
-    public static void main(final String[] args)
-    {
-        int failures = 0;
+class RepeatedStringTest {
 
-        final Pair<Pair<String, Long>, Long>[] testCases = new Pair[] {
-            new Pair(new Pair<>("abcac", 10L), 4L),
-            new Pair(new Pair<>("aba", 10L), 7L),
-            new Pair(new Pair<>("a", 1000000000000L), 1000000000000L),
-            new Pair(new Pair<>("bbbaaaaa", 11L), 5L),
-            new Pair(new Pair<>("abab", 2L), 1L)
-        };
-
-        for (final Pair<Pair<String, Long>, Long> testCase : testCases)
-        {
-            final Pair<String, Long> input = testCase.getKey();
-            final Long expectedResult = testCase.getValue();
-            failures += executeTest(input, expectedResult);
-
-        }
-
-        if (failures > 0)
-        {
-            throw new RuntimeException("Incurred " + failures + " failures while testing " + RepeatedString.class.getSimpleName());
-        }
-        else
-        {
-            System.out.println("All tests are OK!!");
-        }
+    private static Stream<Arguments> repeatedWords() {
+        return Stream.of(
+                Arguments.of("abcac", 10L, 4L),
+                Arguments.of("aba", 10L, 7L),
+                Arguments.of("a", 1000000000000L, 1000000000000L),
+                Arguments.of("bbbaaaaa", 11L, 5L),
+                Arguments.of("abab", 2L, 1L));
     }
 
-    private static int executeTest(final Pair<String, Long> input, final Long expectedResult)
-    {
-        final String str = input.getKey();
-        final Long numLetters = input.getValue();
-        final long result = RepeatedString.repeatedString(str, numLetters);
-
-        if (result != expectedResult)
-        {
-            System.err.println(
-                "For test case " + input.toString() + " the expected number of repeated a characters should be'" + expectedResult + "', but got '"
-                    + result
-                    + "' ");
-            return 1;
-        }
-        return 0;
+    @ParameterizedTest
+    @MethodSource("repeatedWords")
+    void should_count_number_of_letter_a_in_repeated_word(String word, long numRepetitions, long expected) {
+        assertThat(RepeatedString.repeatedString(word, numRepetitions)).isEqualTo(expected);
     }
+
 }
