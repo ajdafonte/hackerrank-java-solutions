@@ -1,7 +1,5 @@
 package pt.caires.hackerrank.advanced;
 
-import static java.lang.System.in;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
@@ -9,20 +7,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.lang.System.in;
 
-class Prime
-{
-    boolean isPrime(final int num)
-    {
-        if (num < 2)
-        {
+
+class Prime {
+
+    boolean isPrime(final int num) {
+        if (num < 2) {
             return false;
         }
 
-        for (int i = 2; i <= num / 2; i++)
-        {
-            if (num % i == 0)
-            {
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
                 return false;
             }
         }
@@ -30,24 +26,19 @@ class Prime
         return true;
     }
 
-    void checkPrime(final Integer... nums)
-    {
+    void checkPrime(final Integer... nums) {
         Arrays.stream(nums)
-            .filter(this::isPrime)
-            .forEach(num -> System.out.print(num + " "));
+                .filter(this::isPrime)
+                .forEach(num -> System.out.print(num + " "));
         System.out.println();
     }
+
 }
 
-/**
- *
- */
-public class PrimeChecker
-{
-    public static void main(final String[] args)
-    {
-        try
-        {
+public class PrimeChecker {
+
+    public static void main(final String[] args) {
+        try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(in));
             final int n1 = Integer.parseInt(br.readLine());
             final int n2 = Integer.parseInt(br.readLine());
@@ -62,24 +53,20 @@ public class PrimeChecker
             final Method[] methods = Prime.class.getDeclaredMethods();
             final Set<String> set = new HashSet<>();
             boolean overload = false;
-            for (int i = 0; i < methods.length; i++)
-            {
-                if (set.contains(methods[i].getName()))
-                {
+            for (int i = 0; i < methods.length; i++) {
+                if (set.contains(methods[i].getName())) {
                     overload = true;
                     break;
                 }
                 set.add(methods[i].getName());
 
             }
-            if (overload)
-            {
+            if (overload) {
                 throw new Exception("Overloading not allowed");
             }
-        }
-        catch (final Exception e)
-        {
+        } catch (final Exception e) {
             System.out.println(e);
         }
     }
+
 }

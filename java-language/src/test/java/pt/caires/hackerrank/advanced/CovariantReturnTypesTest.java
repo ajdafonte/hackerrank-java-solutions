@@ -1,79 +1,46 @@
 package pt.caires.hackerrank.advanced;
 
-import javafx.util.Pair;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
-/**
- *
- */
-public class CovariantReturnTypesTest {
+class CovariantReturnTypesTest {
 
-    public static void main(final String[] args) {
-        int failures = 0;
+    @Test
+    void should_be_jasmine_flower_when_region_is_west_bengal() {
+        Region region = new WestBengal();
+        Flower flower = region.yourNationalFlower();
 
-        final Pair<String, String>[] testCases = new Pair[]{
-                new Pair("WestBengal", "Jasmine"),
-                new Pair("AndhraPradesh", "Lily"),
-                new Pair("Region", "I have many names and types."),
-                new Pair(null, null)
-        };
+        String result = flower.whatsYourName();
 
-        for (final Pair<String, String> testCase : testCases) {
-            final Region inputRegion = discoverRegion(testCase.getKey());
-            final String expectedResult = testCase.getValue();
-            failures += executeTest(inputRegion, expectedResult);
-
-        }
-
-        if (failures > 0) {
-            throw new RuntimeException(
-                    "Incurred " + failures + " failures while testing " + CovariantReturnTypes.class.getSimpleName());
-        } else {
-            System.out.println("All tests are OK!!");
-        }
+        assertThat(result)
+                .isNotBlank()
+                .isEqualTo("Jasmine");
     }
 
-    private static Region discoverRegion(final String input) {
-        Region region = null;
-        if (input != null) {
-            switch (input) {
-                case "WestBengal":
-                    region = new WestBengal();
-                    break;
-                case "AndhraPradesh":
-                    region = new AndhraPradesh();
-                    break;
-                case "Region":
-                    region = new Region();
-                    break;
-            }
-        }
+    @Test
+    void should_be_lily_flower_when_region_is_andhra_pradesh() {
+        Region region = new AndhraPradesh();
+        Flower flower = region.yourNationalFlower();
 
-        return region;
+        String result = flower.whatsYourName();
+
+        assertThat(result)
+                .isNotBlank()
+                .isEqualTo("Lily");
     }
 
-    private static int executeTest(final Region inputRegion, final String expectedResult) {
-        if (inputRegion == null && expectedResult != null) {
-            System.err.println("Expected a Flower with a null name, got a Flower with name " + expectedResult);
-            return 1;
-        }
+    @Test
+    void should_have_several_names_when_other_region() {
+        Region region = new Region();
+        Flower flower = region.yourNationalFlower();
 
-        if (inputRegion != null) {
-            final Flower flower = inputRegion.yourNationalFlower();
-            return checkResult(flower.whatsYourName(), expectedResult);
-        }
+        String result = flower.whatsYourName();
 
-        return 0;
-    }
-
-    private static int checkResult(final String input, final String expectedResult) {
-        if (!input.equals(expectedResult)) {
-            System.err.println(
-                    "Expected a Flower with name '" + expectedResult + "' , got a Flower with name '" + input + "' ");
-            return 1;
-        }
-
-        return 0;
+        assertThat(result)
+                .isNotBlank()
+                .isEqualTo("I have many names and types.");
     }
 
 }
