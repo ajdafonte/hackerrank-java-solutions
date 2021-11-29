@@ -1,59 +1,44 @@
 package pt.caires.hackerrank.arrays;
 
-import java.util.Arrays;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import javafx.util.Pair;
+import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- *
- */
-public class LeftRotationTest
-{
-    public static void main(final String[] args)
-    {
-        int failures = 0;
+class LeftRotationTest {
 
-        final Pair<Pair<int[], Integer>, int[]>[] testCases = new Pair[] {
-            new Pair(new Pair<>(new int[] {1, 2, 3, 4, 5}, 2), new int[] {3, 4, 5, 1, 2}),
-            new Pair(new Pair<>(new int[] {1, 2, 3, 4, 5}, 4), new int[] {5, 1, 2, 3, 4}),
-            new Pair(new Pair<>(new int[] {1, 2, 3, 4, 5}, 0), new int[] {1, 2, 3, 4, 5})
-        };
-
-        for (final Pair<Pair<int[], Integer>, int[]> testCase : testCases)
-        {
-            final Pair<int[], Integer> input = testCase.getKey();
-            final int[] expectedResult = testCase.getValue();
-            failures += executeTest(input, expectedResult);
-
-        }
-
-        if (failures > 0)
-        {
-            throw new RuntimeException("Incurred " + failures + " failures while testing " + LeftRotation.class.getSimpleName());
-        }
-        else
-        {
-            System.out.println("All tests are OK!!");
-        }
+    private static Stream<Arguments> validLeftRotations() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 3, 4, 5}, 2, new int[]{3, 4, 5, 1, 2}),
+                Arguments.of(new int[]{1, 2, 3, 4, 5}, 4, new int[]{5, 1, 2, 3, 4}));
     }
 
-    private static int executeTest(final Pair<int[], Integer> inputData, final int[] expectedResult)
-    {
-        final int[] input = inputData.getKey();
-        final int numRotations = inputData.getValue();
-        final int[] result = LeftRotation.rotLeft(input, numRotations);
+    private static Stream<Arguments> noLeftRotations() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 2, 3, 4, 5}, 0, new int[]{1, 2, 3, 4, 5}));
+    }
 
-        if (!Arrays.equals(result, expectedResult))
-        {
-            System.err.printf("For test case '%s' the expected result after %d rotations is '%s', but got '%s' %n",
-                Arrays.toString(input),
-                numRotations,
-                Arrays.toString(expectedResult),
-                Arrays.toString(result));
-            return 1;
-        }
-        return 0;
+    @ParameterizedTest
+    @MethodSource("validLeftRotations")
+    void should_generate_valid_left_rotations(int[] input, int numRotations, int[] expected) {
+        int[] result = LeftRotation.rotLeft(input, numRotations);
+
+        assertThat(result)
+                .isNotEmpty()
+                .containsExactly(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("noLeftRotations")
+    void should_not_generate_left_rotations(int[] input, int numRotations, int[] expected) {
+        int[] result = LeftRotation.rotLeft(input, numRotations);
+
+        assertThat(result)
+                .isNotEmpty()
+                .containsExactly(expected);
     }
 
 }
