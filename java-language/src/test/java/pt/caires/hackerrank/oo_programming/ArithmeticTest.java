@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 class ArithmeticTest {
 
-    public static Stream<Arguments> numValues() {
+    private static Stream<Arguments> numValues() {
         return Stream.of(
                 Arguments.of(1, 2, 3),
                 Arguments.of(-1, 2, 1),
