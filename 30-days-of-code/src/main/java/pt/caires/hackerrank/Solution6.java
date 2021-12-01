@@ -4,21 +4,15 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 
-/**
- *
- */
-public class Solution6
-{
-    private static boolean isEvenNumber(final int num)
-    {
+public class Solution6 {
+
+    private static boolean isEvenNumber(final int num) {
         return num % 2 == 0;
     }
 
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution6. */
-        try (final Scanner sc = new Scanner(System.in))
-        {
+        try (final Scanner sc = new Scanner(System.in)) {
             final int numTestCases = sc.nextInt();
             // advance cursor to next line..
             sc.nextLine();
@@ -28,12 +22,9 @@ public class Solution6
                 final StringBuffer oddStr = new StringBuffer();
                 IntStream.range(0, testCase.length()).forEach(jdx -> {
                     final char strChar = testCase.charAt(jdx);
-                    if (isEvenNumber(jdx))
-                    {
+                    if (isEvenNumber(jdx)) {
                         evenStr.append(strChar);
-                    }
-                    else
-                    {
+                    } else {
                         oddStr.append(strChar);
                     }
                 });
@@ -41,4 +32,5 @@ public class Solution6
             });
         }
     }
+
 }

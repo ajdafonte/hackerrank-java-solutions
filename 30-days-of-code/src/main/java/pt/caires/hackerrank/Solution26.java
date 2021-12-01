@@ -7,11 +7,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class Solution26
-{
+public class Solution26 {
 
 //    private static int calculateFine(final LocalDate returnDate, final LocalDate expectedDate)
 //    {
@@ -41,56 +37,45 @@ public class Solution26
 //        return fine;
 //    }
 
-    private static int calculateFine(final String returnDateStr, final String expectedDateStr)
-    {
+    private static int calculateFine(final String returnDateStr, final String expectedDateStr) {
         int fine = 0;
 
-        try
-        {
+        try {
             final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d M yyyy");
             final LocalDate returnDate = LocalDate.parse(returnDateStr, dtf);
             final LocalDate expectedDate = LocalDate.parse(expectedDateStr, dtf);
 
-            if (returnDate.isAfter(expectedDate))
-            {
+            if (returnDate.isAfter(expectedDate)) {
                 // get period between dates
                 final Period p = Period.between(expectedDate, returnDate);
 
-                if (returnDate.getYear() != expectedDate.getYear())
-                {
+                if (returnDate.getYear() != expectedDate.getYear()) {
                     fine = 10000;
-                }
-                else if (p.getMonths() == 0)
-                {
+                } else if (p.getMonths() == 0) {
                     // calculate diff of num days and multiply by 15
                     fine = p.getDays() * 15;
-                }
-                else
-                {
+                } else {
                     // calculate diff of num months and multiply by 500
                     fine = p.getMonths() * 500;
                 }
             }
-        }
-        catch (final DateTimeParseException e)
-        {
+        } catch (final DateTimeParseException e) {
             fine = 0;
         }
 
         return fine;
     }
 
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         /*
          * Enter your code here. Read input from STDIN. Print output to STDOUT. Your
          * class should be named Solution.
          */
-        try (final Scanner sc = new Scanner(System.in))
-        {
+        try (final Scanner sc = new Scanner(System.in)) {
             final String returnDateStr = sc.nextLine();
             final String expectedDateStr = sc.nextLine();
             System.out.println(calculateFine(returnDateStr, expectedDateStr));
         }
     }
+
 }

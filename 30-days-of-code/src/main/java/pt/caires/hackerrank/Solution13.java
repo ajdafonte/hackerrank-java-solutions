@@ -3,36 +3,34 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-abstract class Book
-{
+abstract class Book {
+
     String title;
     String author;
 
-    Book(final String title, final String author)
-    {
+    Book(final String title, final String author) {
         this.title = title;
         this.author = author;
     }
 
     abstract void display();
+
 }
 
-// Declare your class here. Do not use the 'public' access modifier.
-class MyBook extends Book
-{
+class MyBook extends Book {
+
     // Declare the price instance variable
     private final int price;
 
     /**
      * Class Constructor
      *
-     * @param title The book's title.
+     * @param title  The book's title.
      * @param author The book's author.
-     * @param price The book's price.
+     * @param price  The book's price.
      **/
     // Write your constructor here
-    MyBook(final String title, final String author, final int price)
-    {
+    MyBook(final String title, final String author, final int price) {
         super(title, author);
         this.price = price;
     }
@@ -44,21 +42,18 @@ class MyBook extends Book
      **/
     // Write your method here
     @Override
-    void display()
-    {
+    void display() {
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Price: " + price);
     }
+
 }
 
-/**
- *
- */
-public class Solution13
-{
-    public static void main(final String[] args)
-    {
+
+public class Solution13 {
+
+    public static void main(final String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final String title = scanner.nextLine();
         final String author = scanner.nextLine();
@@ -68,4 +63,5 @@ public class Solution13
         final Book book = new MyBook(title, author, price);
         book.display();
     }
+
 }

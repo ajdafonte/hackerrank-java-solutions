@@ -4,19 +4,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-class Difference
-{
+class Difference {
+
     private final int[] elements;
     int maximumDifference;
 
     // Add your code here
-    Difference(final int[] elements)
-    {
+    Difference(final int[] elements) {
         this.elements = elements;
     }
 
-    void computeDifference()
-    {
+    void computeDifference() {
         final int min = Arrays.stream(elements).min().getAsInt();
         final int max = Arrays.stream(elements).max().getAsInt();
         final int diff = max - min;
@@ -25,18 +23,14 @@ class Difference
 
 } // End of Difference class
 
-/**
- *
- */
-public class Solution14
-{
-    public static void main(final String[] args)
-    {
+
+public class Solution14 {
+
+    public static void main(final String[] args) {
         final Scanner sc = new Scanner(System.in);
         final int n = sc.nextInt();
         final int[] a = new int[n];
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
         sc.close();
@@ -47,4 +41,5 @@ public class Solution14
 
         System.out.print(difference.maximumDifference);
     }
+
 }

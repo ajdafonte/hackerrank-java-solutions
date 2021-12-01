@@ -3,13 +3,9 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class Solution1
-{
-    public static void main(final String[] args)
-    {
+public class Solution1 {
+
+    public static void main(final String[] args) {
         final int i = 4;
         final double d = 4.0;
         final String s = "HackerRank ";
@@ -43,4 +39,5 @@ public class Solution1
 
         scan.close();
     }
+
 }

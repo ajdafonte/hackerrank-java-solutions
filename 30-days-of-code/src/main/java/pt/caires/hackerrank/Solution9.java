@@ -6,28 +6,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class Solution9
-{
+public class Solution9 {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
     // Complete the factorial function below.
-    private static int factorial(final int n)
-    {
-        if (n <= 1)
-        {
+    private static int factorial(final int n) {
+        if (n <= 1) {
             return 1;
-        }
-        else
-        {
+        } else {
             return n * factorial(n - 1);
         }
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(final String[] args) throws IOException
-    {
+    public static void main(final String[] args) throws IOException {
         final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final int n = scanner.nextInt();
@@ -42,4 +34,5 @@ public class Solution9
 
         scanner.close();
     }
+
 }

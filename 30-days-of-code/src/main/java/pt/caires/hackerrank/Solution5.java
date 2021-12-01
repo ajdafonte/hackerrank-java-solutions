@@ -4,15 +4,11 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 
-/**
- *
- */
-public class Solution5
-{
+public class Solution5 {
+
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         final int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
@@ -23,4 +19,5 @@ public class Solution5
 
         scanner.close();
     }
+
 }

@@ -3,13 +3,9 @@ package pt.caires.hackerrank;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class Solution0
-{
-    public static void main(final String[] args)
-    {
+public class Solution0 {
+
+    public static void main(final String[] args) {
         // Create a Scanner object to read input from stdin.
         final Scanner scan = new Scanner(System.in);
 
@@ -26,4 +22,5 @@ public class Solution0
         // Write a line of code here that prints the contents of inputString to stdout.
         System.out.println(inputString);
     }
+
 }
