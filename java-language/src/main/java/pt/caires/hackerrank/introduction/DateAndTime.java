@@ -8,11 +8,8 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 
-/**
- *
- */
-class Result
-{
+// TODO: 02/12/2021 - Refactor approach
+class Result {
 
     /*
      * Complete the 'findDay' function below.
@@ -20,9 +17,7 @@ class Result
      * The function is expected to return a STRING. The function accepts following
      * parameters: 1. INTEGER month 2. INTEGER day 3. INTEGER year
      */
-
-    static String findDay(final int month, final int day, final int year)
-    {
+    static String findDay(final int month, final int day, final int year) {
         System.out.println("pum");
         final GregorianCalendar gc = new GregorianCalendar(year, month - 1, day);
         System.out.println(gc != null);
@@ -34,10 +29,9 @@ class Result
 
 }
 
-public class DateAndTime
-{
-    public static void main(final String[] args) throws IOException
-    {
+public class DateAndTime {
+
+    public static void main(final String[] args) throws IOException {
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         final String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
@@ -53,4 +47,5 @@ public class DateAndTime
 
         bufferedReader.close();
     }
+
 }
