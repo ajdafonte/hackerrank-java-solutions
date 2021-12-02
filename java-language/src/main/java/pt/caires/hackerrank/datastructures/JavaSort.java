@@ -11,66 +11,55 @@ import java.util.Scanner;
 //    - If those two students also have the same first name, then order them according to their ID.
 //    - No two students have the same ID.
 
-class Student
-{
+class Student {
+
     private final int id;
     private final String fname;
     private final double cgpa;
 
-    Student(final int id, final String fname, final double cgpa)
-    {
+    Student(final int id, final String fname, final double cgpa) {
         super();
         this.id = id;
         this.fname = fname;
         this.cgpa = cgpa;
     }
 
-    int getId()
-    {
+    int getId() {
         return id;
     }
 
-    String getFname()
-    {
+    String getFname() {
         return fname;
     }
 
-    double getCgpa()
-    {
+    double getCgpa() {
         return cgpa;
     }
+
 }
 
-/**
- *
- */
-public class JavaSort
-{
+// TODO: 02/12/2021 Refactor approach
+public class JavaSort {
+
     private static final Comparator<Student> MY_COMPARATOR = (o1, o2) -> {
         final int defaultComparison = Double.compare(o2.getCgpa(), o1.getCgpa());
-        if (defaultComparison == 0)
-        {
+        if (defaultComparison == 0) {
             final int secondComparison = o1.getFname().compareTo(o2.getFname());
-            if (secondComparison == 0)
-            {
+            if (secondComparison == 0) {
                 return Integer.compare(o1.getId(), o2.getId());
-            }
-            else
-            {
+            } else {
                 return secondComparison;
             }
         }
         return defaultComparison;
     };
 
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         final Scanner in = new Scanner(System.in);
         int testCases = Integer.parseInt(in.nextLine());
 
         final List<Student> studentList = new ArrayList<>();
-        while (testCases > 0)
-        {
+        while (testCases > 0) {
             final int id = in.nextInt();
             final String fname = in.next();
             final double cgpa = in.nextDouble();
@@ -83,10 +72,10 @@ public class JavaSort
 
         studentList.sort(MY_COMPARATOR);
 
-        for (final Student st : studentList)
-        {
+        for (final Student st : studentList) {
             System.out.println(st.getFname());
         }
     }
+
 }
 

@@ -3,13 +3,9 @@ package pt.caires.hackerrank.datastructures;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class OneDimensionArray
-{
-    public static void main(final String[] args)
-    {
+public class OneDimensionArray {
+
+    public static void main(final String[] args) {
 
         final Scanner scan = new Scanner(System.in);
         final int n = scan.nextInt();
@@ -19,9 +15,9 @@ public class OneDimensionArray
         scan.close();
 
         // Prints each sequential element in array a
-        for (int i = 0; i < a.length; i++)
-        {
+        for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
     }
+
 }
