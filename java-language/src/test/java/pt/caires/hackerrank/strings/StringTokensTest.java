@@ -18,7 +18,7 @@ class StringTokensTest {
 
     private StringTokens stringTokens;
 
-    private static Stream<Arguments> stringsWithSeparators() {
+    private static Stream<Arguments> stringsWithSeparator() {
         return Stream.of(
                 Arguments.of("He is a very very good boy, isn't he?",
                              asList("He", "is", "a", "very", "very", "good", "boy", "isn", "t", "he"),
@@ -34,10 +34,10 @@ class StringTokensTest {
                              3));
     }
 
-    private static Stream<Arguments> stringsWithoutValidSeparators() {
+    private static Stream<Arguments> stringsWithoutValidSeparator() {
         return Stream.of(
                 Arguments.of("Abracadabra", singletonList("Abracadabra")),
-                Arguments.of(" credo ", singletonList("credo")));
+                Arguments.of(" estepilha ", singletonList("estepilha")));
     }
 
     @BeforeEach
@@ -46,10 +46,10 @@ class StringTokensTest {
     }
 
     @ParameterizedTest
-    @MethodSource("stringsWithSeparators")
-    void should_return_collection_of_words_when_string_with_whitespaces(String input,
-                                                                        List<String> expectedResult,
-                                                                        int expectedSize) {
+    @MethodSource("stringsWithSeparator")
+    void should_return_collection_of_words_when_string_with_separator(String input,
+                                                                      List<String> expectedResult,
+                                                                      int expectedSize) {
         List<String> result = stringTokens.getWordsIn(input);
 
         assertThat(result)
@@ -59,9 +59,9 @@ class StringTokensTest {
     }
 
     @ParameterizedTest
-    @MethodSource("stringsWithoutValidSeparators")
-    void should_return_empty_collection_of_words_when_string_without_whitespaces(String input,
-                                                                                 List<String> expectedResult) {
+    @MethodSource("stringsWithoutValidSeparator")
+    void should_return_empty_collection_of_words_when_string_without_separator(String input,
+                                                                               List<String> expectedResult) {
         List<String> result = stringTokens.getWordsIn(input);
 
         assertThat(result)
