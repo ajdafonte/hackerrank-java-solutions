@@ -3,36 +3,30 @@ package pt.caires.hackerrank.strings;
 import java.util.Scanner;
 
 
-/**
- *
- */
-class Validator
-{
+class Validator {
+
     /*
      * Write regular expression here.
      */
     public static final String regularExpression = "[a-zA-Z]\\w{7,29}";
+
 }
 
-public class UsernameRegularExpression
-{
+public class UsernameRegularExpression {
+
     private static final Scanner scan = new Scanner(System.in);
 
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         int n = Integer.parseInt(scan.nextLine());
-        while (n-- != 0)
-        {
+        while (n-- != 0) {
             final String userName = scan.nextLine();
 
-            if (userName.matches(Validator.regularExpression))
-            {
+            if (userName.matches(Validator.regularExpression)) {
                 System.out.println("Valid");
-            }
-            else
-            {
+            } else {
                 System.out.println("Invalid");
             }
         }
     }
+
 }
