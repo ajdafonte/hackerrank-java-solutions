@@ -3,13 +3,9 @@ package pt.caires.hackerrank.introduction;
 import java.util.Scanner;
 
 
-/**
- *
- */
-public class StdinAndStdout1
-{
-    public static void main(final String[] args)
-    {
+public class StdinAndStdout1 {
+
+    public static void main(final String[] args) {
         final Scanner scan = new Scanner(System.in);
         final int a = scan.nextInt();
         final int b = scan.nextInt();
@@ -21,4 +17,5 @@ public class StdinAndStdout1
 
         scan.close();
     }
+
 }
