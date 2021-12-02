@@ -1,49 +1,65 @@
 package pt.caires.hackerrank.datastructures;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 
-// TODO: 02/12/2021 Add unit test
 public class TwoDimensionArray {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    public static void main(final String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(final String[] args) {
-        final int[][] arr = new int[6][6];
+        List<List<Integer>> arr = new ArrayList<>();
 
-        for (int i = 0; i < 6; i++) {
-            final String[] arrRowItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            for (int j = 0; j < 6; j++) {
-                final int arrItem = Integer.parseInt(arrRowItems[j]);
-                arr[i][j] = arrItem;
+        IntStream.range(0, 6).forEach(i -> {
+            try {
+                arr.add(
+                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                                .map(Integer::parseInt)
+                                .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
-        }
+        });
 
-        calculateHourglass(arr);
+        int[][] array = mapFrom(arr);
+        System.out.println(calculateHourglassValue(array));
 
-        scanner.close();
+        bufferedReader.close();
+
     }
 
-    private static void calculateHourglass(final int[][] arr) {
-        int finalSum = Integer.MIN_VALUE;
+    private static int[][] mapFrom(List<List<Integer>> values) {
+        return values.stream()
+                .map(rowWithValues -> rowWithValues.stream()
+                        .mapToInt(Integer::intValue)
+                        .toArray())
+                .toArray(int[][]::new);
+    }
 
+    static int calculateHourglassValue(int[][] arr) {
+        int hourglassValue = Integer.MIN_VALUE;
         for (int i = 0; i < 4; i++) {
-            int currSum = 0;
+            int currentValue;
             for (int j = 0; j < 4; j++) {
-                currSum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
-                        + arr[i + 1][j + 1] +
-                        arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+                currentValue = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
+                        + arr[i + 1][j + 1]
+                        + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
 
-                if (currSum >= finalSum) {
-                    finalSum = currSum;
+                if (currentValue >= hourglassValue) {
+                    hourglassValue = currentValue;
                 }
             }
-
         }
-
-        System.out.println(finalSum);
+        return hourglassValue;
     }
 
 }
