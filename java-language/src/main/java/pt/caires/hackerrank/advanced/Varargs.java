@@ -9,12 +9,10 @@ import java.util.List;
 import java.util.Set;
 
 
-public class Varargs
-{
-    public void main(final String[] args)
-    {
-        try
-        {
+public class Varargs {
+
+    public void main(final String[] args) {
+        try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             final int n1 = Integer.parseInt(br.readLine());
             final int n2 = Integer.parseInt(br.readLine());
@@ -30,47 +28,39 @@ public class Varargs
             final Method[] methods = Add.class.getDeclaredMethods();
             final Set<String> set = new HashSet<>();
             boolean overload = false;
-            for (int i = 0; i < methods.length; i++)
-            {
-                if (set.contains(methods[i].getName()))
-                {
+            for (int i = 0; i < methods.length; i++) {
+                if (set.contains(methods[i].getName())) {
                     overload = true;
                     break;
                 }
                 set.add(methods[i].getName());
 
             }
-            if (overload)
-            {
+            if (overload) {
                 throw new Exception("Overloading not allowed");
             }
-        }
-        catch (final Exception e)
-        {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
 
-    class Add
-    {
-        void add(final Integer... nums)
-        {
+    class Add {
+
+        void add(final Integer... nums) {
             final List<Integer> ints = Arrays.asList(nums);
             int result = 0;
-            for (int i = 0; i < ints.size(); i++)
-            {
+            for (int i = 0; i < ints.size(); i++) {
                 final int currNum = ints.get(i);
                 result += currNum;
-                if (i == ints.size() - 1)
-                {
+                if (i == ints.size() - 1) {
                     System.out.print(currNum + "=");
                     System.out.println(result);
-                }
-                else
-                {
+                } else {
                     System.out.print(currNum + "+");
                 }
             }
         }
+
     }
+
 }
