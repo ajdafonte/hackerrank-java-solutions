@@ -4,17 +4,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-// TODO: 02/12/2021 Add unit test
 public class SubArray {
 
-    private static int getNumOfNegativeSubarrays(final int[] arr) {
+    static int getNumOfNegativeSubarrays(final int[] arr) {
         int result = 0;
 
         for (int j = 0; j < arr.length; j++) {
             for (int i = j + 1; i <= arr.length; i++) {
                 final int[] subarray = Arrays.copyOfRange(arr, j, i);
-//                Arrays.stream(subarray).forEach(System.out::print);
-//                System.out.println(" - " isSumNegative(subarray));
                 if (isSumNegative(subarray)) {
                     result++;
                 }
