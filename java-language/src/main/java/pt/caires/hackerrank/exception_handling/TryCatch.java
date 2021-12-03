@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-// TODO: 02/12/2021 Add unit test
 public class TryCatch {
 
     public static void main(final String[] args) {
@@ -18,7 +17,7 @@ public class TryCatch {
         }
     }
 
-    private static Long specialDivision(final String x, final String y)
+    static Long specialDivision(final String x, final String y)
             throws ArithmeticException, InputMismatchException {
         final Long numX = convertToLong(x);
         final Long numY = convertToLong(y);

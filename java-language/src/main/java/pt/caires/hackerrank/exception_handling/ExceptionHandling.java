@@ -3,7 +3,6 @@ package pt.caires.hackerrank.exception_handling;
 import java.util.Scanner;
 
 
-// TODO: 02/12/2021 Add unit test
 public class ExceptionHandling {
 
     public static final Scanner in = new Scanner(System.in);
@@ -22,7 +21,7 @@ public class ExceptionHandling {
         }
     }
 
-    private static class MyCalculator {
+    static class MyCalculator {
 
         int power(final int n, final int p) throws Exception {
             if (n < 0 || p < 0) {
