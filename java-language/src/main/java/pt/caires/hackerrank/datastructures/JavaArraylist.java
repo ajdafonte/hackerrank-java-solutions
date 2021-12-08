@@ -1,48 +1,52 @@
 package pt.caires.hackerrank.datastructures;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 
-// TODO: 02/12/2021 Refactor this approach
 public class JavaArraylist {
-
-    private static ArrayList<ArrayList<Integer>> list;
-
-    private static void initializeList(final Scanner sc) {
-        final int n = sc.nextInt();
-        list = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            final int d = sc.nextInt();
-            final ArrayList<Integer> line = new ArrayList<>(d);
-            for (int j = 0; j < d; j++) {
-                line.add(sc.nextInt());
-            }
-            list.add(line);
-        }
-    }
-
-    private static void performQueriesInList(final Scanner sc) {
-        final int q = sc.nextInt();
-        for (int i = 0; i < q; i++) {
-            final int x = sc.nextInt();
-            final int y = sc.nextInt();
-            performQueryInList(x - 1, y - 1);
-        }
-    }
-
-    private static void performQueryInList(final int x, final int y) {
-        try {
-            System.out.println(list.get(x).get(y));
-        } catch (final IndexOutOfBoundsException e) {
-            System.out.println("ERROR!");
-        }
-    }
 
     public static void main(final String[] args) {
         try (final Scanner sc = new Scanner(System.in)) {
-            initializeList(sc);
-            performQueriesInList(sc);
+            JavaArraylist javaArraylist = new JavaArraylist();
+            List<List<Integer>> dataSource = javaArraylist.initializeDataSource(sc);
+
+            int numQueries = sc.nextInt();
+            for (int i = 0; i < numQueries; i++) {
+                int line = sc.nextInt();
+                int position = sc.nextInt();
+                Optional<Integer> numberFound =
+                        javaArraylist.findNumberIn(dataSource, line - 1, position - 1);
+                if (numberFound.isPresent()) {
+                    System.out.println(numberFound.get());
+                } else {
+                    System.out.println("ERROR!");
+                }
+            }
+        }
+    }
+
+    public List<List<Integer>> initializeDataSource(Scanner sc) {
+        int numLines = sc.nextInt();
+        List<List<Integer>> dataSource = new ArrayList<>(numLines);
+        for (int i = 0; i < numLines; i++) {
+            int numItems = sc.nextInt();
+            List<Integer> line = new ArrayList<>(numItems);
+            for (int j = 0; j < numItems; j++) {
+                line.add(sc.nextInt());
+            }
+            dataSource.add(line);
+        }
+        return dataSource;
+    }
+
+    public Optional<Integer> findNumberIn(List<List<Integer>> dataSource, int line, int position) {
+        try {
+            return Optional.of(dataSource.get(line).get(position));
+        } catch (IndexOutOfBoundsException e) {
+            return Optional.empty();
         }
     }
 
