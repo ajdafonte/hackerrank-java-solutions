@@ -1,48 +1,43 @@
 package pt.caires.hackerrank.datastructures;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
-// TODO: 02/12/2021 Refactor approach
 public class JavaList {
 
-    private static ArrayList<Integer> list;
-
     public static void main(final String[] args) {
-        try (final Scanner sc = new Scanner(System.in)) {
-            populateList(sc);
-            performQueries(sc);
-            list.forEach(elem -> System.out.print(elem + " "));
+        try (Scanner sc = new Scanner(System.in)) {
+            JavaList javaList = new JavaList();
+            List<Integer> dataSource = javaList.performOperationsIn(sc, javaList.initializeDataSource(sc));
+            dataSource.forEach(element -> System.out.print(element + " "));
         }
     }
 
-    private static void performQueries(final Scanner sc) {
-        final int numQueries = sc.nextInt();
-        for (int i = 0; i < numQueries; i++) {
-            final String queryType = sc.next();
-            switch (queryType) {
-                case "Insert": {
-                    final int insertX = sc.nextInt();
-                    final int insertY = sc.nextInt();
-                    list.add(insertX, insertY);
-                    break;
-                }
-                case "Delete": {
-                    final int deleteX = sc.nextInt();
-                    list.remove(deleteX);
-                    break;
-                }
+    public List<Integer> initializeDataSource(Scanner sc) {
+        List<Integer> dataSource = new ArrayList<>();
+        int numElements = sc.nextInt();
+        for (int i = 0; i < numElements; i++) {
+            dataSource.add(sc.nextInt());
+        }
+        return dataSource;
+    }
+
+    public List<Integer> performOperationsIn(Scanner sc, List<Integer> dataSource) {
+        int numOperations = sc.nextInt();
+        for (int i = 0; i < numOperations; i++) {
+            String operation = sc.next();
+            if (operation.equals("Insert")) {
+                int index = sc.nextInt();
+                int newValue = sc.nextInt();
+                dataSource.add(index, newValue);
+            } else if (operation.equals("Delete")) {
+                int index = sc.nextInt();
+                dataSource.remove(index);
             }
         }
-    }
-
-    private static void populateList(final Scanner sc) {
-        final int n = sc.nextInt();
-        list = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            list.add(sc.nextInt());
-        }
+        return dataSource;
     }
 
 }
