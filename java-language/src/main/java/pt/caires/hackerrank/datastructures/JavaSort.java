@@ -10,7 +10,6 @@ import java.util.Scanner;
 //    - If two student have the same CGPA, then arrange them according to their first name in alphabetical order.
 //    - If those two students also have the same first name, then order them according to their ID.
 //    - No two students have the same ID.
-
 class Student {
 
     private final int id;
@@ -38,20 +37,20 @@ class Student {
 
 }
 
-// TODO: 02/12/2021 Refactor approach
+
 public class JavaSort {
 
-    private static final Comparator<Student> MY_COMPARATOR = (o1, o2) -> {
-        final int defaultComparison = Double.compare(o2.getCgpa(), o1.getCgpa());
-        if (defaultComparison == 0) {
-            final int secondComparison = o1.getFname().compareTo(o2.getFname());
-            if (secondComparison == 0) {
-                return Integer.compare(o1.getId(), o2.getId());
+    static final Comparator<Student> STUDENT_COMPARATOR = (student1, student2) -> {
+        int compareByCgpa = Double.compare(student2.getCgpa(), student1.getCgpa());
+        if (compareByCgpa == 0) {
+            int compareByFirstName = student1.getFname().compareTo(student2.getFname());
+            if (compareByFirstName == 0) {
+                return Integer.compare(student1.getId(), student2.getId());
             } else {
-                return secondComparison;
+                return compareByFirstName;
             }
         }
-        return defaultComparison;
+        return compareByCgpa;
     };
 
     public static void main(final String[] args) {
@@ -70,7 +69,7 @@ public class JavaSort {
             testCases--;
         }
 
-        studentList.sort(MY_COMPARATOR);
+        studentList.sort(STUDENT_COMPARATOR);
 
         for (final Student st : studentList) {
             System.out.println(st.getFname());
