@@ -5,30 +5,14 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 
-/**
- * Created by aleja on 10/01/2019.
- */
 class Player {
 
-    private final String name;
-    private final int score;
+    String name;
+    int score;
 
-    Player(final String name, final int score) {
+    Player(String name, int score) {
         this.name = name;
         this.score = score;
-    }
-
-    String getName() {
-        return name;
-    }
-
-    int getScore() {
-        return score;
-    }
-
-    @Override
-    public String toString() {
-        return name + " " + score;
     }
 
 }
@@ -36,50 +20,33 @@ class Player {
 class Checker implements Comparator<Player> {
 
     @Override
-    public int compare(final Player o1, final Player o2) {
-        if (o1.getScore() == o2.getScore()) {
-            return o1.getName().compareTo(o2.getName());
+    public int compare(Player player1, Player player2) {
+        if (player1.score == player2.score) {
+            return player1.name.compareTo(player2.name);
         }
-        return Integer.compare(o2.getScore(), o1.getScore());
+        return Integer.compare(player2.score, player1.score);
     }
 
 }
 
-// TODO: 02/12/2021 Refactor this approach
+
 public class JavaComparator {
 
-    private static boolean checkScore(final int score) {
-        return score >= 0 && score <= 1000;
-    }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
 
-    private static void printPlayers(final Player[] players) {
-        Arrays.stream(players).forEach(System.out::println);
-    }
+        Player[] player = new Player[n];
+        Checker checker = new Checker();
 
-    public static void main(final String[] args) {
-        try (final Scanner sc = new Scanner(System.in)) {
-            // handle input and create players
-            final int numPlayers = sc.nextInt();
-            final Player[] players = new Player[numPlayers];
-            for (int i = 0; i < numPlayers; i++) {
-                final String name = sc.next();
-                final int score = sc.nextInt();
-                if (checkScore(score)) {
-                    players[i] = new Player(name, score);
-                }
-            }
+        for (int i = 0; i < n; i++) {
+            player[i] = new Player(scan.next(), scan.nextInt());
+        }
+        scan.close();
 
-            // Other option
-//            // execute sort
-//            Arrays.sort(players, new Checker());
-//
-//            // print players array
-//            printPlayers(players);
-
-            Arrays.stream(players)
-                    .sorted(new Checker())
-                    .forEach(System.out::println);
-
+        Arrays.sort(player, checker);
+        for (int i = 0; i < player.length; i++) {
+            System.out.printf("%s %s\n", player[i].name, player[i].score);
         }
     }
 
